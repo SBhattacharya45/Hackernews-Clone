@@ -5,7 +5,9 @@ import classes from './Button.module.css';
 const Button = props => {
     return(
         <div className={classes.buttonContainer}>
-            <button className={classes.button} onClick={props.click}>Load More</button>
+            <button className={classes.button} onClick={props.click}>
+                {props.load ? "Loading..." : "Load More"}
+                </button>
         </div>
     )
 }
