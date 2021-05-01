@@ -37,7 +37,7 @@ const NewPosts = () => {
                     if(count === post_count){
                         postsList = newDetails.map((data, igKey) =>{
                             return(
-                                <Post key={igKey} title={data.title} link={data.url}/>
+                                <Post key={igKey} time={data.time} title={data.title} link={data.url}/>
                             )
                         })
                         setLoader(false);
@@ -64,7 +64,7 @@ const NewPosts = () => {
             count++;
             if(count === post_count){
                 newDetails.map((data, igKey) =>{
-                    const ele = <Post key={igKey + offset} title={data.title} link={data.url}/>
+                    const ele = <Post key={igKey + offset} time={data.time} title={data.title} link={data.url}/>
                     newList.push(ele);
                     return true;
                 })
