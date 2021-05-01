@@ -4,5 +4,10 @@
     flex-flow: column;
     align-items: center;
     background-color: #eee;
-    height: 674px;
+    height: 605px;
+    overflow: scroll;
+}
+
+.container {
+    height: 655px;
 }

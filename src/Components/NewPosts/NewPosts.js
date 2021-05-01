@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import Post from '../Post/Post';
+import Button from '../Button/Button';
 import classes from './NewPosts.module.css';
 
 const NewPosts = () => {
@@ -10,7 +11,9 @@ const NewPosts = () => {
     const [details, setDetails] = useState([]);
     const [loader, setLoader] = useState(true);
     const [list, setList] = useState(null);
+    const [offset, setOffset] = useState(0);
     let postsList = null;
+    const post_count = 6;
 
     useEffect( () => {
 
@@ -45,12 +48,12 @@ const NewPosts = () => {
             const setData = async () => {
                 let newDetails = details;
                 let count = 0;
-                posts.slice(0,5).forEach( async id => {
+                posts.slice(0,post_count).forEach( async id => {
                     const res = await axios.get('https://hacker-news.firebaseio.com/v0/item/'+ id +'.json?print=pretty');
                     console.log(res);
                     newDetails.push(res.data);
                     count++;
-                    if(count === 5){
+                    if(count === post_count){
                         console.log("setData");
                         setDetails(newDetails);
                         console.log(details);
@@ -60,12 +63,13 @@ const NewPosts = () => {
                             )
                         })
                         setLoader(false);
-                        setList(postsList);  
+                        setList(postsList);
+                        setOffset(post_count);  
                     }
                 })
             }
 
-            console.log(posts.slice(0, 5));
+            console.log(posts.slice(0, post_count));
             console.log("fetched posts");
             setData();
           
@@ -81,14 +85,19 @@ const NewPosts = () => {
     //     }
     // }, [details])
 
+    const onLoadHandler = () => {
+        console.log("clicked");
+    }
 
 
     return(
-        <div className={classes.PostContainer}> 
-            {/* <Post title="dummy" link="https://www.cdfinder.de/guide/blog/apple_hell.html"/>
-            <Post/> */}
-            {loader ? "Loading" : null}
-            {list}
+        <div className={classes.container}>
+            <div className={classes.PostContainer}> 
+                {/* <Post title="dummy" link="https://www.cdfinder.de/guide/blog/apple_hell.html"/> */}
+                {list}
+                {loader ? "Loading" : null}
+            </div>
+            <Button click={onLoadHandler}/>
         </div>
     )
 }
