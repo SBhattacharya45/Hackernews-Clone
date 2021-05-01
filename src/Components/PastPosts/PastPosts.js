@@ -3,9 +3,9 @@ import axios from 'axios';
 
 import Post from '../Post/Post';
 import Button from '../Button/Button';
-import classes from './NewPosts.module.css';
+import classes from './PastPosts.module.css';
 
-const NewPosts = () => {
+const PastPosts = () => {
 
     const [posts, setPosts] = useState([]);
     const [details, setDetails] = useState([]);
@@ -19,7 +19,7 @@ const NewPosts = () => {
 
         const fetchData = async () => {
             console.log("fetching posts");
-            const result = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json")
+            const result = await axios.get("https://hacker-news.firebaseio.com/v0/topstories.json")
             setPosts(result.data);
         }
 
@@ -123,4 +123,4 @@ const NewPosts = () => {
     )
 }
 
-export default NewPosts;
+export default PastPosts;

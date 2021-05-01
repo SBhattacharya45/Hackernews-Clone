@@ -5,11 +5,12 @@ import classes from './Post.module.css';
 const Post = props => {
 
     const clickHandler = () => {
-        window.location.href= props.link;
+        // window.location.href= props.link;
+
     }
 
     return(
-        <div className={classes.mainContainer} onClick={clickHandler}>
+        <a className={classes.mainContainer} target="_blank" href={props.link} style={{ textDecoration: 'none' }}>
             <div className={classes.head}>
                 <p>{props.title}</p>
             </div>
@@ -19,7 +20,7 @@ const Post = props => {
             <div className={classes.meta}>
                 1 day ago | 56 Comments
             </div>
-        </div>
+        </a>
     )
 }
 

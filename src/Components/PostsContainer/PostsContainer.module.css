@@ -1,0 +1,29 @@
+.modeSelector {
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #eee;
+    margin: 0;
+}
+
+.selectorSubDiv {
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #eee;
+    padding-left: 10px;
+}
+
+.modes {
+    background-color: #fbc91b;
+    font-weight: 700;
+    font-size: 17px;
+    width: 60px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
