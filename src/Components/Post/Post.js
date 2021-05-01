@@ -1,6 +1,5 @@
 import React from 'react';
 import TimeAgo from 'react-timeago'
-import ReactTimeAgo from 'react-time-ago'
 
 import classes from './Post.module.css';
 
