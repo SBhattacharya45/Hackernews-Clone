@@ -4,13 +4,8 @@ import classes from './Post.module.css';
 
 const Post = props => {
 
-    const clickHandler = () => {
-        // window.location.href= props.link;
-
-    }
-
     return(
-        <a className={classes.mainContainer} target="_blank" href={props.link} style={{ textDecoration: 'none' }}>
+        <a className={classes.mainContainer} rel="noreferrer nofollow" target="_blank" href={props.link} style={{ textDecoration: 'none' }}>
             <div className={classes.head}>
                 <p>{props.title}</p>
             </div>

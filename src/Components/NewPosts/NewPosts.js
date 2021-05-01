@@ -8,11 +8,9 @@ import classes from './NewPosts.module.css';
 const NewPosts = () => {
 
     const [posts, setPosts] = useState([]);
-    const [details, setDetails] = useState([]);
     const [loader, setLoader] = useState(true);
     const [list, setList] = useState(null);
     const [offset, setOffset] = useState(0);
-    let postsList = null;
     const post_count = 5;
 
     useEffect( () => {
@@ -46,18 +44,17 @@ const NewPosts = () => {
         if(posts.length > 0){
 
             const setData = async () => {
-                let newDetails = details;
+                let newDetails = [];
                 let count = 0;
+                let postsList = null;
                 posts.slice(0,post_count).forEach( async id => {
                     const res = await axios.get('https://hacker-news.firebaseio.com/v0/item/'+ id +'.json?print=pretty');
                     // console.log(res);
                     newDetails.push(res.data);
                     count++;
                     if(count === post_count){
-                        // console.log("setData");
-                        setDetails(newDetails);
                         // console.log(details);
-                        postsList = details.map((data, igKey) =>{
+                        postsList = newDetails.map((data, igKey) =>{
                             return(
                                 <Post key={igKey} title={data.title} link={data.url}/>
                             )
@@ -92,11 +89,10 @@ const NewPosts = () => {
             count++;
             if(count === post_count){
                 console.log("setData");
-                setDetails(newDetails);
-                console.log(details);
                 newDetails.map((data, igKey) =>{
-                    const ele = <Post key={igKey} title={data.title} link={data.url}/>
+                    const ele = <Post key={igKey + offset} title={data.title} link={data.url}/>
                     newList.push(ele);
+                    return true;
                     // return(
                     //     <Post key={igKey} title={data.title} link={data.url}/>
                     // )
