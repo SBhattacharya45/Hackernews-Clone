@@ -17,7 +17,7 @@
 }
 
 .modes {
-    background-color: #fbc91b;
+    background-color: #77dd77;
     font-weight: 700;
     font-size: 17px;
     width: 60px;
@@ -26,4 +26,15 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+}
+
+/* For desktop */
+@media only screen and (min-width: 600px) {
+    .selectorSubDiv {
+        display: flex;
+        width: 23%;
+        justify-content: space-around;
+        align-items: center;
+        padding-left: 10px;
+    }
 }
