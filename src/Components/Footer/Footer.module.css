@@ -1,6 +1,6 @@
 .Footerdiv {
     margin: 0;
-    background-color: #fbc91b;
+    background-color: #77dd77;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -9,4 +9,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.headerText{
+    font-size: 25px;
 }

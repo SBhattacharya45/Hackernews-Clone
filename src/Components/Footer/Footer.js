@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from '../../Assets/logo_bottom.png';
 
 import classes from './Footer.module.css';
 
 const Footer = () => {
     return (
         <div className={classes.Footerdiv}>
-            <img src={logo} alt="logo"/>
+            <span className={classes.headerText}><b>Hacker</b> News</span>
         </div>
     )
 }
